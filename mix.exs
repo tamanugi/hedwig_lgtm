@@ -34,6 +34,7 @@ defmodule HedwigLgtm.Mixfile do
   defp deps do
     [
       {:hedwig, "~>1.0.0"},
+      {:poison, "~>3.0"},
       {:httpoison, "~>0.11.1"}
     ]
   end
