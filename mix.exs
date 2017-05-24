@@ -28,6 +28,9 @@ defmodule HedwigLgtm.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:hedwig, "~>1.0.0"},
+      {:httpoison, "~>0.11.1"}
+    ]
   end
 end
