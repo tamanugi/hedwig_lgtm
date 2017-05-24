@@ -9,6 +9,12 @@ defmodule HedwigLgtm.Responders.LgtmTest  do
       assert_receive {:message, %{text: text}}, 5000
       assert text =~ "testuser: http"
     end
+
+    test "lgtm <username> responds with a LGTM image url and mention", %{adapter: adapter, msg: msg} do
+      send adapter, {:message, %{msg | text: "fukurou lgtm alfred"}}
+      assert_receive {:message, %{text: text}}, 5000
+      assert text =~ "alfred: http"
+    end
   end
 
 end
