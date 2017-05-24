@@ -6,11 +6,16 @@ defmodule HedwigLgtm.Responders.Lgtm do
   @usage """
   <text> (lgtm) - Replies with a random Borat image.
   """
-  respond ~r/lgtm$/i, msg do
+  respond ~r/lgtm(?: *)(.*)$/i, msg do
+
+    to_username = case msg do
+             %{matches: %{1 => matches}} when matches != "" -> matches
+             %{user: user} -> user
+           end
 
     lgtm_image_url = fetch() |> find_image_url
 
-    reply msg, lgtm_image_url
+    reply %{msg | user: to_username}, lgtm_image_url
 
   end
 
