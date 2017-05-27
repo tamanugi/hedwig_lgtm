@@ -4,7 +4,7 @@ defmodule HedwigLgtm.Responders.Lgtm do
   @lgtm_url "https://lgtm.in/g/"
 
   @usage """
-  <text> (lgtm) - Replies with a random Borat image.
+  hedwig: lgtm - Replies with a random LGTM image.
   """
   respond ~r/lgtm(?: *)(.*)$/i, msg do
 
